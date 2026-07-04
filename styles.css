@@ -27,17 +27,17 @@ img, svg { display: block; }
 :focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
 .top-note { height: 20px; background: var(--yellow); }
 
-.site-header { position: sticky; z-index: 30; top: 0; border-bottom: 1px solid var(--line); background: rgba(251,253,255,.95); backdrop-filter: blur(16px); }
+.site-header { position: sticky; z-index: 30; top: 0; border-bottom: 1px solid rgba(18,59,93,.2); background: rgba(255,234,0,.96); backdrop-filter: blur(16px); }
 .nav-shell { min-height: 76px; display: flex; align-items: center; gap: 24px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; margin-right: auto; }
 .brand-logo { width: 50px; height: 50px; display: block; flex: 0 0 auto; overflow: hidden; border-radius: 8px; background: #eef1f4; }
 .brand-logo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.55); transform-origin: 50% 39%; }
 .brand strong, .brand small { display: block; line-height: 1; }
 .brand strong { font: 600 23px var(--serif); letter-spacing: -.03em; }
-.brand small { margin-top: 6px; color: var(--muted); font-size: 8px; letter-spacing: .18em; text-transform: uppercase; }
+.brand small { margin-top: 6px; color: var(--blue-dark); font-size: 8px; letter-spacing: .18em; text-transform: uppercase; }
 .main-nav { display: flex; align-items: center; gap: 20px; font-size: 12px; font-weight: 700; }
 .main-nav a { position: relative; padding-block: 10px; }
-.main-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 3px; height: 2px; background: var(--yellow); transition: right .23s; }
+.main-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 3px; height: 2px; background: var(--blue-dark); transition: right .23s; }
 .main-nav a:hover::after, .main-nav a:focus-visible::after { right: 0; }
 .menu-button { display: none; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; cursor: pointer; }
 .menu-button span { display: block; height: 2px; margin: 5px 0; background: var(--blue-dark); transition: .25s; }
