@@ -1,5 +1,5 @@
 :root {
-  --blue: #1976c9;
+  --blue: #00a8ff;
   --blue-dark: #123b5d;
   --blue-deep: #092d49;
   --blue-light: #eaf5ff;
@@ -25,10 +25,10 @@ img, svg { display: block; }
 .skip-link { position: fixed; z-index: 100; left: 20px; top: -80px; padding: 12px 18px; color: white; background: var(--blue-deep); transition: top .2s; }
 .skip-link:focus { top: 15px; }
 :focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
-.top-note { height: 20px; background: var(--yellow); }
+.top-note { height: 10px; background: var(--yellow); }
 
-.site-header { position: sticky; z-index: 30; top: 0; border-bottom: 1px solid rgba(18,59,93,.2); background: rgba(255,234,0,.96); backdrop-filter: blur(16px); }
-.nav-shell { min-height: 76px; display: flex; align-items: center; gap: 24px; }
+.site-header { position: sticky; z-index: 30; top: 0; border-bottom: 6px solid var(--blue); background: rgba(255,234,0,.98); box-shadow: 0 12px 30px rgba(0,168,255,.18); backdrop-filter: blur(16px); }
+.nav-shell { min-height: 68px; display: flex; align-items: center; gap: 22px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; margin-right: auto; }
 .brand-logo { width: 50px; height: 50px; display: block; flex: 0 0 auto; overflow: hidden; border-radius: 8px; background: #eef1f4; }
 .brand-logo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.55); transform-origin: 50% 39%; }
@@ -39,6 +39,9 @@ img, svg { display: block; }
 .main-nav a { position: relative; padding-block: 10px; }
 .main-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 3px; height: 2px; background: var(--blue-dark); transition: right .23s; }
 .main-nav a:hover::after, .main-nav a:focus-visible::after { right: 0; }
+.language-switch { display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; border: 1px solid rgba(18,59,93,.2); border-radius: 999px; color: var(--blue-dark); background: rgba(255,255,255,.28); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+.language-switch a { opacity: .6; }
+.language-switch a.active, .language-switch a:hover, .language-switch a:focus-visible { opacity: 1; color: var(--blue-dark); }
 .menu-button { display: none; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; cursor: pointer; }
 .menu-button span { display: block; height: 2px; margin: 5px 0; background: var(--blue-dark); transition: .25s; }
 
@@ -51,10 +54,12 @@ img, svg { display: block; }
 .text-link span { transition: transform .2s; }
 .text-link:hover span { transform: translateX(4px); }
 
-.hero { min-height: 690px; position: relative; overflow: hidden; background: var(--blue-light); }
-.hero-photo { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(251,253,255,.99) 0%, rgba(234,245,255,.9) 36%, rgba(234,245,255,.08) 62%), url("assets/hero-dental.png") center / cover no-repeat; }
-.hero-layout { min-height: 690px; position: relative; display: flex; align-items: center; }
-.hero-copy { width: 61%; padding: 62px 0 82px; }
+.hero { min-height: 690px; position: relative; overflow: hidden; background: radial-gradient(circle at 82% 44%, rgba(255,234,0,.42), transparent 24%), linear-gradient(135deg, var(--blue-light) 0%, #fff 52%, var(--yellow-light) 100%); }
+.hero::after { content: ""; position: absolute; z-index: 0; right: -16%; top: 8%; width: 54%; aspect-ratio: 1; border-radius: 50%; background: var(--yellow); opacity: .24; }
+.hero-logo-panel { position: absolute; z-index: 1; right: max(32px, calc((100vw - 1180px) / 2)); top: 50%; width: min(430px, 36vw); aspect-ratio: 1; display: grid; place-items: center; padding: 36px; border: 7px solid rgba(0,168,255,.24); border-radius: 50%; background: rgba(255,255,255,.6); box-shadow: 0 30px 90px rgba(18,59,93,.13); transform: translateY(-50%); }
+.hero-logo-panel img { width: 100%; height: 100%; object-fit: cover; border-radius: 26px; transform: scale(1.08); }
+.hero-layout { min-height: 690px; position: relative; z-index: 2; display: flex; align-items: center; }
+.hero-copy { width: 56%; padding: 62px 0 82px; }
 .eyebrow { display: flex; align-items: center; gap: 11px; margin: 0 0 23px; color: var(--blue); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
 .eyebrow > span { width: 29px; height: 2px; background: var(--yellow); }
 h1, h2 { margin: 0; font-family: var(--serif); font-weight: 600; line-height: 1.04; letter-spacing: -.045em; }
@@ -180,7 +185,8 @@ h1 em, h2 em { color: var(--blue); font-weight: inherit; }
 
 @media (max-width: 1050px) {
   .main-nav { gap: 13px; font-size: 11px; }
-  .hero-copy { width: 70%; }
+  .language-switch { padding-inline: 8px; }
+  .hero-copy { width: 62%; }
   .visit-steps { grid-template-columns: repeat(3,1fr); }
   .visit-steps li:nth-child(3) { border-right: 1px solid rgba(255,255,255,.35); }
   .visit-steps li:nth-child(n+4) { border-top: 0; }
@@ -191,15 +197,18 @@ h1 em, h2 em { color: var(--blue); font-weight: inherit; }
   .container { width: min(100% - 32px, 620px); }
   .nav-shell { min-height: 68px; }
   .menu-button { display: block; }
-  .main-nav { position: fixed; inset: 99px 0 auto; height: calc(100dvh - 99px); flex-direction: column; align-items: flex-start; gap: 15px; padding: 35px 28px; color: white; background: var(--blue-dark); transform: translateX(100%); transition: transform .3s; font: 600 22px var(--serif); overflow-y: auto; }
+  .main-nav { position: fixed; inset: 84px 0 auto; height: calc(100dvh - 84px); flex-direction: column; align-items: flex-start; gap: 15px; padding: 35px 28px; color: white; background: var(--blue-dark); transform: translateX(100%); transition: transform .3s; font: 600 22px var(--serif); overflow-y: auto; }
   .menu-open .main-nav { transform: none; }
   .menu-open .menu-button span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .menu-open .menu-button span:nth-child(2) { opacity: 0; }
   .menu-open .menu-button span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .hero { min-height: 930px; background: var(--blue-light); }
+  .language-switch { order: 2; margin-left: auto; }
+  .menu-button { order: 3; }
+  .hero { min-height: 900px; background: linear-gradient(180deg, var(--blue-light), var(--yellow-light)); }
   .hero-layout { min-height: 930px; align-items: flex-start; }
-  .hero-photo { inset: auto 0 0; height: 43%; opacity: 1; background-image: url("assets/hero-dental.png"); background-position: 67% center; }
-  .hero-copy { width: 100%; padding: 55px 0 430px; }
+  .hero::after { right: -42%; top: auto; bottom: 4%; width: 110%; }
+  .hero-logo-panel { left: 50%; right: auto; top: auto; bottom: 70px; width: min(330px, 76vw); padding: 25px; transform: translateX(-50%); }
+  .hero-copy { width: 100%; padding: 55px 0 420px; }
   h1 { font-size: clamp(44px,13vw,62px); }
   .lead { font-size: 15px; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
